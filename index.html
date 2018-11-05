@@ -1,0 +1,125 @@
+<html>
+
+    <head>
+        <title>New Tab</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/skeleton.css">
+        <link rel="stylesheet" href="css/foundation-icons.css">
+
+        <style>
+.icons {
+    text-align: center;
+    margin-top: 15%;
+}
+            .icons i {
+                color: #fff;
+                font-size: 72px;
+                padding: 0 25 0 25;
+            }
+            .icons i:hover {
+                color: #a8a8a8;
+            }
+            body {
+                background-color: #0f0f0f;
+            }
+            #search {
+                padding-top: 5%;
+                margin: 0 auto;
+                width: 350px;
+            }
+            #search input {
+                font-family: "Lucida Console", Monaco, monospace;
+                text-align: left !important;
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                padding: 15px 20px 15px 20px;
+                background-color: #1e2126;
+
+                border: none;
+                color: #fff;
+                border-radius: 25px;
+            }
+            #search input:focus {
+                border: none;
+                outline: none;
+            }
+
+            .quicklinks {
+                padding-top: 5%;
+            }
+
+            .quicklinks ul {
+                list-style: none;
+                margin-left: 0;
+            }
+            .quicklinks h4 {
+                font-family: "Lucida Console", Monaco, monospace;
+                color: #3b3f44;
+            }
+
+            .quicklinks a {
+                color: #717883;
+                text-decoration: none;
+                font-family: "Lucida Console", Monaco, monospace;
+            }
+            .quicklinks a:hover {
+                color: #9ba5b2;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row icons">
+                <div class="twelve columns">
+                    <a href="https://youtube.com"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://netfix.com"><i class="fa">N</i></a>
+                    <a href="https://github.com"><i class="fa fa-github"></i></a>
+                    <a href="https://gmail.com"><i class="fa fa-envelope"></i></a>
+                    <a href="https://reddit.com"><i class="fa fa-reddit"></i></a>
+                    <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                    <a href="https://feedly.com"><i class="fa fa-rss"></i></a>
+                </div>
+            </div>
+            <div class="row search">
+                <div class="twelve columns">
+                    <div id="search"><input autofocus type="text" /></div>
+                </div>
+            </div>
+            <div class="row quicklinks">
+                <div class="three columns">
+                    <h4>Work</h4>
+                    <ul>
+                        <li><a href="https://my.wpengine.com">WP Engine</a></li>
+                    </ul>
+                </div>
+                <div class="three columns">
+                    <h4>Development</h4>
+                    <ul>
+                        <li><a href="https://regexr.com/">Regex</a></li>
+                    </ul>
+                </div>
+                <div class="three columns">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="https://fontawesome.com/v4.7.0/cheatsheet/">Font Awesome 4</a></li>
+                    </ul>
+                </div>
+                <div class="three columns">
+                    <h4>Personal</h4>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.js"></script>
+        <script>
+            $("#search input[type=text]").on('keypress', function(e) {
+                if(e.which === 13) {
+                    window.location = "http://google.com/#q=" + $("#search input[type=text]").val();
+                }
+            });
+        </script>
+    </body>
+</html>
