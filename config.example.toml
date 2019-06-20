@@ -1,0 +1,19 @@
+[[icon-links]]
+url = "https://reddit.com"
+icon = "reddit"
+
+[[columns.example]]
+url = "https://example.org"
+label = "Example"
+
+[[columns.example]]
+url = "https://github.com"
+label = "GitHub"
+
+[[columns.development]]
+url = "https://github.com/jordanknott/homepage"
+label = "Github/Homepage"
+
+
+
+
