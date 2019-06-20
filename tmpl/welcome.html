@@ -1,0 +1,159 @@
+<html>
+
+	<body>
+		<p>Hello</p>
+		<ul>
+		</ul>
+
+	</body>
+</html>
+<html>
+    <head>
+        <title>New Tab</title>
+        <link rel="stylesheet" href="static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/css/skeleton.css">
+        <link rel="stylesheet" href="static/css/foundation-icons.css">
+
+        <style>
+#search p {
+    position: absolute;
+}
+.icons {
+    text-align: center;
+    margin-top: 15%;
+}
+            .icons i {
+                color: #fff;
+                font-size: 72px;
+                padding: 0 25 0 25;
+            }
+            .icons i:hover {
+                color: #a8a8a8;
+            }
+            body {
+                background-color: #121e25;
+            }
+            #search {
+                padding-top: 5%;
+                margin: 0 auto;
+                width: 500px;
+            }
+            #search input {
+                font-family: "Lucida Console", Monaco, monospace;
+                text-align: left !important;
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                padding: 15px 20px 15px 20px;
+                background-color: #1e2126;
+
+                border: none;
+                color: #fff;
+                border-radius: 25px;
+            }
+            #search input:focus {
+                border: none;
+                outline: none;
+            }
+
+            .quicklinks {
+                padding-top: 5%;
+            }
+
+            .quicklinks ul {
+                list-style: none;
+                margin-left: 0;
+            }
+            .quicklinks h4 {
+                font-family: "Lucida Console", Monaco, monospace;
+                color: #fff;
+            }
+
+            .quicklinks a {
+                color: #afbac4;
+                text-decoration: none;
+                font-family: "Lucida Console", Monaco, monospace;
+            }
+            .quicklinks a:hover {
+                color: #e3e3e3;
+                text-decoration: underline;
+            }
+
+            #clock {
+                color: #afbac4;
+                text-align: center;
+                font-size: 26px;
+                padding-top: 55px;
+            }
+        </style>
+    </head>
+
+    <body onload="startTime()">
+        <div class="container">
+            <div class="row icons">
+                <div class="twelve columns">
+					{{ range .Config.IconLinks }}
+						<a href="{{ .URL }}"><i class="fa fa-{{ .Icon }}"></i><a>
+					{{ end }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <div id="clock">
+                        <span id="date"></span>
+                        <span class="slash">//</span>
+                        <span id="time"></span>
+                    </div>
+                </div>
+            </div>
+			<div class="row quicklinks">
+				{{ range $name, $links := .Config.Columns }}
+				<div class="three columns">
+					<h4>{{ $name }}</h4>
+					<ul>
+						{{ range $links }}
+						<li><a href="{{ .URL }}">{{ .Label }}</a></li>
+						{{ end }}
+					</ul>
+				</div>
+				{{ end }}
+        </div>
+        <script src="static/js/jquery.js"></script>
+        <script>
+            var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+            function startTime() {
+                var today = new Date();
+                var h = today.getHours();
+                var ampm = h >= 12 ? 'PM' : 'AM';
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                var h = h % 12;
+                var h = h ? h : 12; // the hour '0' should be '12'
+
+                //---------------------
+
+                var dow = DAYS[today.getDay()]
+                var dd = ('0' + today.getDate()).slice(-2)
+                var mm = ('0' + (today.getMonth() + 1 )).slice(-2)
+                var yy = today.getFullYear()
+
+                document.getElementById('date').innerHTML = dow + ' ' + yy + '-' + mm + '-' + dd
+
+                //---------------------
+
+                document.getElementById('time').innerHTML =
+                    h + ":" + m + ":" + s + ' ' + ampm;
+                var t = setTimeout(startTime, 500);
+            }
+
+            function checkTime(i) {
+                if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                return i;
+            }
+
+        </script>
+    </body>
+</html>

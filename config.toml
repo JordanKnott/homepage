@@ -1,0 +1,15 @@
+[[icon-links]]
+url = "https://reddit.com"
+icon = "reddit"
+
+[[columns.common]]
+url = "https://my.wpengine.com"
+label = "WP Engine"
+
+[[columns.work]]
+url = "https://projects.drivendigital.us"
+label = "OpenProjects"
+
+
+
+
