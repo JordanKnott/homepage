@@ -83,9 +83,9 @@
         <div class="container">
             <div class="row icons">
                 <div class="twelve columns">
-					{{ range .Config.IconLinks }}
-						<a href="{{ .URL }}"><i class="fa fa-{{ .Icon }}"></i><a>
-					{{ end }}
+                    {{ range .Config.IconLinks }}
+                    <a href="{{ .URL }}"><i class="fa fa-{{ .Icon }}"></i></a>
+                    {{ end }}
                 </div>
             </div>
             <div class="row">
@@ -97,17 +97,18 @@
                     </div>
                 </div>
             </div>
-			<div class="row quicklinks">
-				{{ range $name, $links := .Config.Columns }}
-				<div class="three columns">
-					<h4>{{ $name }}</h4>
-					<ul>
-						{{ range $links }}
-						<li><a href="{{ .URL }}">{{ .Label }}</a></li>
-						{{ end }}
-					</ul>
-				</div>
-				{{ end }}
+            <div class="row quicklinks">
+                {{ range $name, $links := .Config.Columns }}
+                <div class="three columns">
+                    <h4>{{ $name }}</h4>
+                    <ul>
+                        {{ range $links }}
+                        <li><a href="{{ .URL }}">{{ .Label }}</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+            </div>
         </div>
         <script src="static/js/jquery.js"></script>
         <script>
