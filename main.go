@@ -28,20 +28,17 @@ type TemplateData struct {
 	Config ConfigData
 }
 
-var config ConfigData
-
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("rendering template")
+	var config ConfigData
+	if _, err := toml.DecodeFile("config.toml", &config); err != nil {
+		panic(err)
+	}
 	tmpl := template.Must(template.ParseFiles("tmpl/welcome.html"))
 
 	tmpl.Execute(w, TemplateData{config})
 }
 
 func main() {
-	if _, err := toml.DecodeFile("config.toml", &config); err != nil {
-		panic(err)
-	}
-	fmt.Println(config)
 
 	r := mux.NewRouter()
 
