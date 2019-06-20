@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/BurntSushi/toml"
 	"github.com/gorilla/mux"
 	"html/template"
