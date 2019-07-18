@@ -12,19 +12,18 @@ import (
 	"net/http"
 )
 
-type IconLink struct {
-	URL  string
-	Icon string
-}
-
 type NormalLink struct {
 	URL   string
 	Label string
 }
 
+type General struct {
+	Greeting string `toml:"greeting"`
+}
+
 type ConfigData struct {
-	IconLinks []IconLink `toml:"icon-links"`
-	Columns   map[string][]NormalLink
+	Columns map[string][]NormalLink
+	General General `toml:"general"`
 }
 
 type TemplateData struct {
@@ -37,7 +36,7 @@ func generate() {
 	if _, err := toml.DecodeFile("config.toml", &config); err != nil {
 		panic(err)
 	}
-	tmpl := template.Must(template.ParseFiles("tmpl/welcome.html"))
+	tmpl := template.Must(template.ParseFiles("tmpl/homepage.html"))
 
 	tmpl.Execute(&renderedTmpl, TemplateData{config})
 

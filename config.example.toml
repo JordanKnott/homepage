@@ -1,6 +1,5 @@
-[[icon-links]]
-url = "https://reddit.com"
-icon = "reddit"
+[general]
+greeting = "Welcome Jordan"
 
 [[columns.example]]
 url = "https://example.org"
