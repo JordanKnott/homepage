@@ -1,0 +1,29 @@
+.search-result {
+    padding: .75em 1em;
+    background-color: #282A36;
+    border: solid 0px #282A36;
+    border-radius: 6px;
+    margin-top: 25px;
+    text-align: center;
+    border-bottom: solid 3px #282A36;
+
+    &.selected {
+        border-bottom: solid 3px blue;
+    }
+
+    .name {
+        display: block;
+        font-size: 14pt;
+        color: #FDFDFD;
+        font-weight: bold;
+    }
+    .actionType {
+        display: block;
+        font-size: 10pt;
+        font-variant: all-petite-caps;
+        color: #c0c0c0;
+    }
+    a {
+        text-decoration: none;
+    }
+}
