@@ -51,7 +51,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if _, err := toml.DecodeFile("config.toml", &config); err != nil {
 		panic(err)
 	}
-	tmpl := template.Must(template.ParseFiles("tmpl/welcome.html"))
+	tmpl := template.Must(template.ParseFiles("tmpl/homepage.html"))
 
 	tmpl.Execute(w, TemplateData{config})
 }
@@ -61,12 +61,12 @@ func Serve() {
 
 	// This will serve files under http://localhost:8000/static/<filename>
 	dir := "static"
-	r.HandleFunc("/", handler)
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(dir))))
+	r.HandleFunc("/", handler)
 
 	srv := &http.Server{
 		Handler: r,
-		Addr:    "127.0.0.1:9090",
+		Addr:    "0.0.0.0:9090",
 	}
 
 	log.Fatal(srv.ListenAndServe())

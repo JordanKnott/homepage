@@ -1,0 +1,7 @@
+version: '3'
+services:
+  homepage:
+    build: .
+    restart: always
+    ports:
+      - 9090:9090

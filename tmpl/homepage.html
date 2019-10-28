@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
     <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
@@ -17,6 +17,9 @@
                 <div id="welcome-description"class="inline"></div>
                 <div class="inline">{{ .Config.General.Greeting }}</div>
                 <div id="temp" class="inline"></div>
+                <form autoComplete="nope">
+                    <input autoComplete="off" type="text" name="search-field" id="search-field" />
+                </form>
             </div>
         </div>
         <div class="bookmark-container">
@@ -53,6 +56,12 @@
             setInterval( () => {
                 document.getElementById("clock").innerHTML = getTime();
             },100);
+
+            document.getElementById("search-field").focus();
+        }
+
+        if (window.location.hash == '#newTab') {
+            document.location.href = "http://homepage.localhost:9090";
         }
     </script>
 </body>
